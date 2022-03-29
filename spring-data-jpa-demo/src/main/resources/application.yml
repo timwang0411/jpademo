@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    #驅動程式類別(若非postgresql可查詢該資料庫的驅動名稱)
+    driver-class-name: org.postgresql.Driver
+    #資料庫URL協定(若非postgresql可上網搜尋該資料庫的URL協定)
+    url: jdbc:postgresql://localhost:5432/test?currentSchema=employee
+    #使用者名稱
+    username: postgres
+    #密碼
+    password: tim890411
+  jpa:
+    properties:
+      hibernate:
+        format_sql: 'false'
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: update
