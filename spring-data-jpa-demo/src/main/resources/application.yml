@@ -7,7 +7,7 @@ spring:
     #使用者名稱
     username: postgres
     #密碼
-    password: tim890411
+    password: ********
   jpa:
     properties:
       hibernate:
