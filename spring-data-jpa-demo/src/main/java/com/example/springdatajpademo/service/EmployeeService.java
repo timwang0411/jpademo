@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -56,7 +57,7 @@ public class EmployeeService {
             Employee employee = employeeRepository.getById(empId);
             employee = Employee.builder()
                     .empId(empId)
-                    .email("update@mail")
+                    .email(empId + "@mail")
                     .firstName("first_name_update")
                     .lastName("last_name_update")
                     .mobileNo("0987654321")
@@ -69,8 +70,13 @@ public class EmployeeService {
         }
     }
 
-    public List<Employee> findByEmail(String email){
+    public List findByEmail(String email) {
         List<Employee> employeesLs = employeeRepository.findByEmailContains(email);
+        if(employeesLs.size() == 0){
+            List notFound = new ArrayList();
+            notFound.add(0,"not found");
+            return notFound;
+        }
         return employeesLs;
     }
 

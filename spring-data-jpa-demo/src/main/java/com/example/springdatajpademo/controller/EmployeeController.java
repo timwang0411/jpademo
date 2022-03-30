@@ -47,7 +47,7 @@ public class EmployeeController {
     }
 
     /*
-     *update by Id
+     * update by Id
      */
     @RequestMapping(value = "/update")
     public RedirectView updateLastAdd(@RequestParam(value = "empId", required = true) Integer empId) {
@@ -55,8 +55,11 @@ public class EmployeeController {
         return new RedirectView("/");
     }
 
+    /*
+     * find by email contain
+     */
     @RequestMapping(value = "/findByEmail")
-    public List<Employee> findByEmail(@RequestParam(value = "email",required = false) String email) {
+    public List findByEmail(@RequestParam(value = "email", required = false) String email) {
         List<Employee> employeesLs = employeeService.findByEmail(email);
         return employeesLs;
     }
