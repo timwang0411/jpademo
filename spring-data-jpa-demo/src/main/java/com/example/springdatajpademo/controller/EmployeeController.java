@@ -54,4 +54,10 @@ public class EmployeeController {
         employeeService.updateByEmpId(empId);
         return new RedirectView("/");
     }
+
+    @RequestMapping(value = "/findByEmail")
+    public List<Employee> findByEmail(@RequestParam(value = "email",required = false) String email) {
+        List<Employee> employeesLs = employeeService.findByEmail(email);
+        return employeesLs;
+    }
 }

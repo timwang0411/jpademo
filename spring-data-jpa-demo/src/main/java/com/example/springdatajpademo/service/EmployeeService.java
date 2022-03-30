@@ -69,4 +69,9 @@ public class EmployeeService {
         }
     }
 
+    public List<Employee> findByEmail(String email){
+        List<Employee> employeesLs = employeeRepository.findByEmailContains(email);
+        return employeesLs;
+    }
+
 }
